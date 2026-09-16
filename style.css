@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0d1a0d;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+}
+
+#game-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #1a2f1a;
+}
+
+/* ===== UI ===== */
+#ui {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.bar {
+    margin-bottom: 8px;
+}
+
+.label {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 3px;
+}
+
+.health-bar {
+    width: 160px;
+    height: 14px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#health-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    transition: width 0.15s;
+}
+
+.info {
+    font-size: 14px;
+    background: rgba(0,0,0,0.45);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+#message {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #ffeb3b;
+    font-weight: 600;
+    text-shadow: 0 1px 3px black;
+}
+
+/* ===== Ekrany ===== */
+#start-screen, #win-screen, #gameover-screen {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.82);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+    padding: 20px;
+}
+
+#start-screen h1 {
+    font-size: 42px;
+    letter-spacing: 3px;
+    color: #4caf50;
+    margin-bottom: 4px;
+}
+
+#start-screen h2 {
+    font-size: 18px;
+    opacity: 0.85;
+    margin-bottom: 24px;
+}
+
+#win-screen h1 {
+    color: #ffd700;
+    font-size: 36px;
+}
+
+button {
+    margin-top: 28px;
+    padding: 14px 36px;
+    font-size: 18px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== Sterowanie mobilne ===== */
+#mobile-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#joystick-zone {
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
+    width: 140px;
+    height: 140px;
+    pointer-events: auto;
+}
+
+#joystick-base {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.25);
+    position: relative;
+    touch-action: none;
+}
+
+#joystick-knob {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#shoot-btn {
+    position: absolute;
+    right: 25px;
+    bottom: 40px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(244, 67, 54, 0.75);
+    border: 3px solid rgba(255,255,255,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    pointer-events: auto;
+    touch-action: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#shoot-btn:active {
+    background: rgba(244, 67, 54, 0.95);
+    transform: scale(0.94);
+}
+
+/* Ukryj sterowanie na desktopie gdy nie jest potrzebne */
+@media (min-width: 900px) and (pointer: fine) {
+    #mobile-controls {
+        opacity: 0.35;
+    }
+}

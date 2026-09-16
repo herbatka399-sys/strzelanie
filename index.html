@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mazurek - Strzelanka w Lesie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI -->
+        <div id="ui">
+            <div class="bar">
+                <div class="label">Życie</div>
+                <div class="health-bar"><div id="health-fill"></div></div>
+            </div>
+            <div class="info">
+                <div>Broń: <span id="weapon">Pistolet</span></div>
+            </div>
+            <div id="message"></div>
+        </div>
+
+        <!-- Ekrany -->
+        <div id="start-screen">
+            <h1>MAZUREK</h1>
+            <h2>STRZELANKA W LESIE</h2>
+            <p>Dotrzyj na koniec lasu.<br>Unikaj policji i zbieraj bronie ze skrzynek.</p>
+            <button id="startBtn">START</button>
+        </div>
+
+        <div id="win-screen" class="hidden">
+            <h1>WYGRAŁEŚ!</h1>
+            <p>Dotarłeś na koniec lasu.<br>Czeka na Ciebie 5 dziewczyn z Sokudo.</p>
+            <button id="restartBtn">Zagraj ponownie</button>
+        </div>
+
+        <div id="gameover-screen" class="hidden">
+            <h1>PRZEGRAŁEŚ</h1>
+            <button id="restartBtn2">Spróbuj jeszcze raz</button>
+        </div>
+
+        <!-- Sterowanie mobilne -->
+        <div id="mobile-controls">
+            <div id="joystick-zone">
+                <div id="joystick-base">
+                    <div id="joystick-knob"></div>
+                </div>
+            </div>
+            <div id="shoot-btn">🔥</div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
